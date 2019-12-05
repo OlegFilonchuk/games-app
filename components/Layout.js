@@ -55,6 +55,13 @@ const reset = css`
     max-width: 100%;
     display: block;
   }
+  button {
+    padding: 0;
+    border: none;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+  }
   /* Указываем понятную периодичность в потоке данных у article*/
   article > * + * {
     margin-top: 1em;

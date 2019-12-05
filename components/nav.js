@@ -16,10 +16,11 @@ const nav = css`
     padding: 10px;
     display: block;
     border-radius: 2px;
-    transition: background-color 0.2s;
+    transition: background-color 0.1s;
   }
   .nav-link:hover {
-    background-color: #2f2f4f;
+    background-color: white;
+    color: #2f3f4f;
   }
 `;
 

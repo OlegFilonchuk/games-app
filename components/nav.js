@@ -15,7 +15,7 @@ const nav = css`
     font-weight: bold;
     padding: 10px;
     display: block;
-    border-radius: 2px;
+    border-radius: 3px;
     transition: background-color 0.1s;
   }
   .nav-link:hover {

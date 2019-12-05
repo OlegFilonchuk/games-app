@@ -6,7 +6,7 @@ const header = css`
   & {
     background-color: darkslategray;
     color: white;
-    padding: 20px;
+    padding: 1em;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
@@ -15,22 +15,24 @@ const header = css`
   .search-bar {
   }
   .search-bar-input {
+    background-color: rgb(255, 255, 255);
     padding: 5px;
     border: none;
-    border-radius: 2px;
+    border-radius: 3px;
     outline: 0;
   }
   .search-bar-button {
     padding: 5px;
     border: 1px solid transparent;
-    border-radius: 2px;
+    border-radius: 3px;
     color: white;
     background-color: #101317;
+    outline: none;
     margin-left: 2px;
   }
   .search-bar-button:hover,
   .search-bar-button:focus {
-    outline: 1px solid grey;
+    border: 1px solid grey;
   }
   .search-bar-button:active {
     transform: translateY(1px);
@@ -39,18 +41,18 @@ const header = css`
 `;
 
 const Header = () => (
-  <div css={header}>
+  <header css={header}>
     <div>logo</div>
 
     <Nav />
 
     <div className="search-bar">
-      <input type="text" className="search-bar-input" />
+      <input type="text" className="search-bar-input" placeholder="Search" />
       <button type="button" className="search-bar-button">
         Search
       </button>
     </div>
-  </div>
+  </header>
 );
 
 export default Header;

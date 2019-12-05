@@ -5,34 +5,48 @@ import Layout from '../components/Layout';
 const style = css`
   & {
     background-color: darkgrey;
-    width: 900px;
     margin: auto;
+    @media (max-width: 576px) {
+      padding: 5px;
+    }
     padding: 3em;
   }
   section {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
     padding: 2em 0;
   }
-  #news {
-    display: flex;
-  }
   .news-image {
+    flex: 2 1 300px;
     background-color: lightpink;
-    min-width: 450px;
+    min-height: 300px;
+    max-height: 400px;
+    padding-bottom: 1em;
   }
   .news-text {
-    padding: 0 1em;
+    flex: 1 1 300px;
+    padding: 0 1em 1em;
+  }
+  .news-text h3 {
+    padding: 1em;
+  }
+  #features {
+    flex-direction: column;
+    align-items: center;
   }
   #features h3 {
     padding: 1.5em 0;
   }
   .features-list {
     display: flex;
+    flex-flow: row wrap;
   }
   .features-list-item {
+    flex: 1 1 180px;
     margin: 0 1em;
     display: flex;
     flex-flow: column nowrap;
+    padding: 1em 0;
   }
   .image {
     height: 200px;
@@ -45,11 +59,11 @@ const style = css`
     color: white;
     background-color: #101317;
     outline: none;
-    margin-left: 2px;
     transition: all 0.1s;
     font-weight: bold;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    margin: auto;
   }
   .cta-button:hover {
     color: #101317;
@@ -80,41 +94,38 @@ const Home = () => (
           culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </section>
+
       <section id="features">
         <h3>Create an account and get following features:</h3>
+
         <ul className="features-list">
-          <li>
-            <div className="features-list-item">
-              <div className="image" />
-              <h5>first feature - an amazing feature</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
-            </div>
+          <li className="features-list-item">
+            <div className="image" />
+            <h5>first feature - an amazing feature</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua
+            </p>
           </li>
-          <li>
-            <div className="features-list-item">
-              <div className="image" />
-              <h5>second one - an awesome feature</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
-            </div>
+          <li className="features-list-item">
+            <div className="image" />
+            <h5>second one - an awesome feature</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua
+            </p>
           </li>
-          <li>
-            <div className="features-list-item">
-              <div className="image" />
-              <h5>third feature - you can always quit</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
-            </div>
+          <li className="features-list-item">
+            <div className="image" />
+            <h5>third feature - you can always quit</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua
+            </p>
           </li>
         </ul>
       </section>
+
       <section id="cta">
         <button type="button" className="cta-button">
           Get started!

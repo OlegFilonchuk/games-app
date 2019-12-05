@@ -7,7 +7,6 @@ const footer = css`
     color: white;
     background-color: darkslategray;
     padding: 2em;
-    width: 900px;
     margin: auto;
     display: flex;
     justify-content: space-evenly;

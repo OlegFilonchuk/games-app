@@ -5,6 +5,8 @@ import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
 
+const bp = [576, 768, 992, 1200];
+const mq = bp.map((item) => `@media (min-width: ${item}px)`);
 const reset = css`
   /* Указываем box sizing */
   *,
@@ -76,6 +78,39 @@ const reset = css`
   }
 `;
 
+const container = css`
+  @media (max-width: ${bp[0]}px) {
+    main,
+    footer {
+      width: 100%;
+    }
+  }
+  ${mq[0]} {
+    main,
+    footer {
+      width: ${bp[0]}px;
+    }
+  }
+  ${mq[1]} {
+    main,
+    footer {
+      width: ${bp[1]}px;
+    }
+  }
+  ${mq[2]} {
+    main,
+    footer {
+      width: ${bp[2]}px;
+    }
+  }
+  ${mq[3]} {
+    footer,
+    main {
+      width: ${bp[3]}px;
+    }
+  }
+`;
+
 const Layout = ({ children }) => (
   <div>
     <Head>
@@ -86,7 +121,7 @@ const Layout = ({ children }) => (
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
       />
     </Head>
-    <Global styles={reset} />
+    <Global styles={[reset, container]} />
     <Header />
     {children}
     <Footer />

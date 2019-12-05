@@ -6,7 +6,7 @@
     },
     "extends": [
         "airbnb",
-        "prettier",
+        "prettier/react",
         "eslint:recommended",
         "plugin:react/recommended"
     ],
@@ -14,7 +14,6 @@
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
-    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -27,6 +26,22 @@
         "react"
     ],
     "rules": {
-        "prettier/prettier": ["error"]
+        "prettier/prettier": ["error"],
+        "no-unused-vars": "warn",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "jsx-a11y/label-has-associated-control": [
+            2,
+            {
+                "labelComponents": ["CustomInputLabel"],
+                "labelAttributes": ["label"],
+                "controlComponents": ["CustomInput"],
+                "depth": 4
+            }
+        ],
+        "jsx-a11y/anchor-is-valid": [ "error", {
+            "components": [ "Link" ],
+            "specialLink": [ "hrefLeft", "hrefRight" ],
+            "aspects": [ "invalidHref", "preferButton" ]
+        }]
     }
 }

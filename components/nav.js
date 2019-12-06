@@ -5,6 +5,9 @@ import Link from 'next/link';
 const nav = css`
   .nav-list {
     display: flex;
+    @media (max-width: 576px) {
+      flex-direction: column;
+    }
   }
   .nav-list-item {
     margin: 0 5px;
@@ -33,7 +36,7 @@ const Nav = () => (
         </Link>
       </li>
       <li className="nav-list-item">
-        <Link href="/">
+        <Link href="/top">
           <a className="nav-link">Top games</a>
         </Link>
       </li>

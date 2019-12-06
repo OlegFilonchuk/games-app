@@ -4,12 +4,7 @@ import Layout from '../components/Layout';
 
 const style = css`
   & {
-    background-color: darkgrey;
-    margin: auto;
-    @media (max-width: 576px) {
-      padding: 5px;
-    }
-    padding: 3em;
+    padding: 2em 0;
   }
   section {
     display: flex;

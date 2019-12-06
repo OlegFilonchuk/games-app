@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 const footer = css`
   & {
@@ -9,6 +10,7 @@ const footer = css`
     padding: 2em;
     margin: auto;
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     @media (max-width: 576px) {
       flex-direction: column;
@@ -42,8 +44,8 @@ const footer = css`
   }
 `;
 
-const Footer = () => (
-  <footer css={footer}>
+const Footer = ({ layout }) => (
+  <footer css={[layout, footer]}>
     <div className="logo">logo</div>
     <ul className="links-list">
       <li>
@@ -65,5 +67,9 @@ const Footer = () => (
     <div className="placeholder" />
   </footer>
 );
+
+Footer.propTypes = {
+  layout: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+};
 
 export default Footer;

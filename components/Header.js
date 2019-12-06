@@ -9,10 +9,16 @@ const header = css`
     padding: 1em;
     display: flex;
     flex-flow: row nowrap;
+    @media (max-width: 576px) {
+      flex-direction: column;
+    }
     justify-content: space-evenly;
     align-items: center;
   }
   .search-bar {
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
   .search-bar-input {
     background-color: rgb(255, 255, 255);

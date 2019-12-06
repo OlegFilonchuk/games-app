@@ -79,35 +79,26 @@ const reset = css`
 `;
 
 const container = css`
+  & {
+    padding: 3em 3em 0;
+    margin: auto;
+    background-color: lightgrey;
+  }
   @media (max-width: ${bp[0]}px) {
-    main,
-    footer {
-      width: 100%;
-    }
+    padding: 5px;
+    width: 100%;
   }
   ${mq[0]} {
-    main,
-    footer {
-      width: ${bp[0]}px;
-    }
+    width: ${bp[0]}px;
   }
   ${mq[1]} {
-    main,
-    footer {
-      width: ${bp[1]}px;
-    }
+    width: ${bp[1]}px;
   }
   ${mq[2]} {
-    main,
-    footer {
-      width: ${bp[2]}px;
-    }
+    width: ${bp[2]}px;
   }
   ${mq[3]} {
-    footer,
-    main {
-      width: ${bp[3]}px;
-    }
+    width: ${bp[3]}px;
   }
 `;
 
@@ -121,10 +112,10 @@ const Layout = ({ children }) => (
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
       />
     </Head>
-    <Global styles={[reset, container]} />
+    <Global styles={reset} />
     <Header />
-    {children}
-    <Footer />
+    <div css={container}>{children}</div>
+    <Footer layout={container} />
   </div>
 );
 

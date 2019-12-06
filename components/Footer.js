@@ -10,9 +10,16 @@ const footer = css`
     margin: auto;
     display: flex;
     justify-content: space-evenly;
+    @media (max-width: 576px) {
+      flex-direction: column;
+    }
   }
   .links-list {
     display: flex;
+    @media (max-width: 576px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   .links-list li {
     margin: 0 10px;
@@ -21,16 +28,23 @@ const footer = css`
     text-transform: lowercase;
     font-size: 0.8em;
     display: block;
+    padding: 0.5em 0;
   }
   .footer-link:hover,
   .footer-link:focus {
     text-decoration: underline;
   }
+  .logo,
+  .placeholder {
+    @media (max-width: 576px) {
+      display: none;
+    }
+  }
 `;
 
 const Footer = () => (
   <footer css={footer}>
-    <div>logo</div>
+    <div className="logo">logo</div>
     <ul className="links-list">
       <li>
         <Link href="/">
@@ -48,7 +62,7 @@ const Footer = () => (
         </Link>
       </li>
     </ul>
-    <div />
+    <div className="placeholder" />
   </footer>
 );
 

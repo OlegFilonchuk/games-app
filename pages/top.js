@@ -17,10 +17,7 @@ const top = css`
 
 const Top = () => (
   <Layout>
-    <main css={top}>
-      <div className="item">8</div>
-      <div className="item">9</div>
-    </main>
+    <main css={top}>top games</main>
   </Layout>
 );
 

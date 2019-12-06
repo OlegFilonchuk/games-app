@@ -1,20 +1,26 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 
 const footer = css`
   & {
     color: white;
-    background-color: darkslategray;
+    background-color: #373e49;
     padding: 2em;
-    margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
     @media (max-width: 576px) {
       flex-direction: column;
     }
+  }
+  .logo {
+    width: 100px;
+    height: 100px;
+    background-color: lightpink;
+    line-height: 100px;
+    text-align: center;
   }
   .links-list {
     display: flex;
@@ -44,8 +50,8 @@ const footer = css`
   }
 `;
 
-const Footer = ({ layout }) => (
-  <footer css={[layout, footer]}>
+const Footer = () => (
+  <footer css={footer}>
     <div className="logo">logo</div>
     <ul className="links-list">
       <li>
@@ -67,9 +73,5 @@ const Footer = ({ layout }) => (
     <div className="placeholder" />
   </footer>
 );
-
-Footer.propTypes = {
-  layout: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
-};
 
 export default Footer;

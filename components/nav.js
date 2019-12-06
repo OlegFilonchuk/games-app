@@ -10,20 +10,38 @@ const nav = css`
     }
   }
   .nav-list-item {
-    margin: 0 5px;
+    position: relative;
+    display: flex;
+  }
+  .nav-list-item:after {
+    content: '';
+    width: 1px;
+    height: 100%;
+    background-color: red;
+  }
+  .nav-list-item:last-child:after {
+    content: none;
+  }
+  .nav-list-item:hover {
+    color: red;
+  }
+  .nav-list-item:hover:before {
+    position: absolute;
+    top: calc(100% - 5px);
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 5px;
+    background-color: red;
   }
   .nav-link {
-    color: white;
+    color: inherit;
     text-transform: uppercase;
     font-weight: bold;
     padding: 10px;
     display: block;
     border-radius: 3px;
     transition: background-color 0.1s;
-  }
-  .nav-link:hover {
-    background-color: white;
-    color: #2f3f4f;
   }
 `;
 

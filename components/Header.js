@@ -4,7 +4,7 @@ import Nav from './nav';
 
 const header = css`
   & {
-    background-color: darkslategray;
+    background-color: #373e49;
     color: white;
     padding: 1em;
     display: flex;
@@ -14,6 +14,15 @@ const header = css`
     }
     justify-content: space-evenly;
     align-items: center;
+    box-shadow: 1px 1px 5px 1px grey;
+    z-index: 2;
+  }
+  .logo {
+    width: 100px;
+    height: 100px;
+    background-color: lightpink;
+    line-height: 100px;
+    text-align: center;
   }
   .search-bar {
     @media (max-width: 768px) {
@@ -36,26 +45,28 @@ const header = css`
     outline: none;
     margin-left: 2px;
   }
-  .search-bar-button:hover,
-  .search-bar-button:focus {
-    border: 1px solid grey;
+  //.search-bar-button:focus,
+  .search-bar-button:hover {
+    color: red;
   }
+
   .search-bar-button:active {
     transform: translateY(1px);
     filter: saturate(150%);
+    box-shadow: 1px 1px 10px 1px red;
   }
 `;
 
 const Header = () => (
   <header css={header}>
-    <div>logo</div>
+    <div className="logo">logo</div>
 
     <Nav />
 
     <div className="search-bar">
       <input type="text" className="search-bar-input" placeholder="Search" />
       <button type="button" className="search-bar-button">
-        Search
+        Go!
       </button>
     </div>
   </header>

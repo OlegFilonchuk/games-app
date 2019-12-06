@@ -5,8 +5,6 @@ import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
 
-const bp = [576, 768, 992, 1200];
-const mq = bp.map((item) => `@media (min-width: ${item}px)`);
 const reset = css`
   /* Указываем box sizing */
   *,
@@ -37,6 +35,7 @@ const reset = css`
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     font-family: 'Roboto', sans-serif;
+    line-height: 1.7em;
   }
   /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
   ul[class],
@@ -54,7 +53,8 @@ const reset = css`
     text-decoration: none;
   }
   /* Упрощаем работу с изображениями */
-  img {
+  img,
+  a {
     max-width: 100%;
     display: block;
   }
@@ -78,11 +78,32 @@ const reset = css`
   }
 `;
 
+const bp = [576, 768, 992, 1200];
+const mq = bp.map((item) => `@media (min-width: ${item}px)`);
+
+const wrapper = css`
+  & {
+    display: grid;
+    grid-template-areas:
+      'h h h'
+      '. c .'
+      'f f f';
+  }
+  & header {
+    grid-area: h;
+  }
+  & > div {
+    grid-area: c;
+  }
+  & > footer {
+    grid-area: f;
+  }
+`;
+
 const container = css`
   & {
     padding: 3em 3em 0;
     margin: auto;
-    background-color: lightgrey;
   }
   @media (max-width: ${bp[0]}px) {
     padding: 5px;
@@ -103,7 +124,7 @@ const container = css`
 `;
 
 const Layout = ({ children }) => (
-  <div>
+  <div css={wrapper}>
     <Head>
       <title>NextJS-App</title>
       <link rel="icon" href="/favicon.ico" />
@@ -111,6 +132,10 @@ const Layout = ({ children }) => (
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
       />
+      {/* <script */}
+      {/*   src="https://kit.fontawesome.com/7b8eac1e25.js" */}
+      {/*   crossOrigin="anonymous" */}
+      {/* /> */}
     </Head>
     <Global styles={reset} />
     <Header />

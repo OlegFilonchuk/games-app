@@ -17,7 +17,7 @@ const top = css`
 
 const Top = () => (
   <Layout>
-    <main css={top}>top games</main>
+    <main css={top}>top games yeah</main>
   </Layout>
 );
 
